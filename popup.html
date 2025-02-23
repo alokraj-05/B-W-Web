@@ -2,12 +2,42 @@
 <html lang="en">
   <head>
     <title>B&W Mode</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="popup.css" />
-    <script src="dist/popup.js"></script>
+    <script defer src="dist/popup.js"></script>
   </head>
   <body>
-    <h1>Amondir</h1>
-    <p>Distract less,Concentrate more.</p>
-    <button class="btn_dark" id="toggle-bw">B/W</button>
+    <nav>
+      <div class="left">
+        <div class="logo"><i class="fa-solid fa-cloud"></i> Amondir</div>
+      </div>
+      <div class="right">
+        <a href="https://github.com/alokraj-05/B-W-Web"
+          ><i class="fa-solid fa-code"></i
+        ></a>
+      </div>
+    </nav>
+    <section class="sec_first">
+      <div class="first">
+        <div class="icn">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <div class="txt">
+          <h2>Amondir</h2>
+          <span>Disctract less, Focus more.</span>
+        </div>
+      </div>
+    </section>
+    <section class="btn">
+      <button class="btn_dark" id="toggle-bw">
+        <i class="fa-solid fa-moon"></i> DARK
+      </button>
+    </section>
   </body>
 </html>
