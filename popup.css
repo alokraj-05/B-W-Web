@@ -106,7 +106,22 @@ button:hover {
 }
 
 .btn {
-  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  background: #ffffff28;
+  margin: 10px 1.2rem;
+  border-radius: 10px;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+#switch1 {
+  font-size: 1.3rem;
+  background: none;
+  outline: none;
+  border: none;
+}
+
+#switch1 i {
+  color: white;
 }
