@@ -9,9 +9,21 @@ function toggleBlackAndWhite() {
   }
 }
 
-// Listen for messages from popup.ts
+const startTimer = ()=>{
+  let elaspedTime, startTime,timeInterval;
+  startTime = Date.now();
+  timeInterval = setInterval(()=>{
+    var currentTime = Date.now()
+    elaspedTime = currentTime - startTime;
+  },10)
+}
+
+// // Listen for messages from popup.ts
 chrome.runtime.onMessage.addListener((message) => {
   if (message.action === "toggle_bw") {
-      toggleBlackAndWhite();
+    toggleBlackAndWhite();
+  }
+  if(message.action === "toggle_timer"){
+    startTimer();
   }
 });
