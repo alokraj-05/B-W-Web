@@ -1,14 +1,13 @@
 // content script can run scripts that read and modify the content of the page.
 
-function toggleBlackAndWhite() {
-  const body = document.body;
-  if (body.style.filter === "grayscale(100%)") {
-      body.style.filter = "";
-  } else {
-      body.style.filter = "grayscale(100%)";
-  }
+function toggleBlackAndWhite(isEnabled: boolean) {
+  document.body.style.filter = isEnabled ? "grayscale(100%)":"";
 }
 
+chrome.storage.local.get("bwMode",(data)=>{
+  const isEnabled = data.bwMode || false;
+  toggleBlackAndWhite(isEnabled);
+})
 const startTimer = ()=>{
   let elaspedTime, startTime,timeInterval;
   startTime = Date.now();
@@ -19,11 +18,19 @@ const startTimer = ()=>{
 }
 
 // // Listen for messages from popup.ts
-chrome.runtime.onMessage.addListener((message) => {
+chrome.runtime.onMessage.addListener((message,sender,sendResponse) => {
   if (message.action === "toggle_bw") {
-    toggleBlackAndWhite();
+    chrome.storage.local.get("bwMode",(data)=>{
+      const newState = !data.bwMode;
+      chrome.storage.local.set({ bwMode: newState},()=>{
+        toggleBlackAndWhite(newState);
+      })
+    })
   }
-  if(message.action === "toggle_timer"){
-    startTimer();
+  if (message.action === "summarise") {
+    console.log("Summarise action received in content script.");
+    chrome.runtime.sendMessage({ action: "summarise" });
+    sendResponse({ status: "success" });
   }
+  return true;
 });
