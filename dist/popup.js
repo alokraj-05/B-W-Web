@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (tab.id !== undefined) {
                 try {
                     yield chrome.sidePanel.open({ tabId: tab.id });
+                    chrome.tabs.sendMessage(tab.id, { action: "summarise" });
                     console.log("side panel opend successfully.");
                 }
                 catch (error) {
