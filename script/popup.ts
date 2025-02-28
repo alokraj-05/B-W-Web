@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					switch1?.classList.toggle("fa-toggle-off");
       });
   }
+
   const summariseBtn = document.getElementById("sum-btn");
   if(summariseBtn){
     summariseBtn.addEventListener("click",async ()=>{
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if(tab.id!== undefined){
         try {
           await chrome.sidePanel.open({tabId:tab.id});
+          chrome.tabs.sendMessage(tab.id,{action:"summarise"});
           console.log("side panel opend successfully.")
         } catch (error) {
           console.error("error opening side panel:",error)
