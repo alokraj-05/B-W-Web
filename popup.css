@@ -26,7 +26,8 @@ nav {
 
 body {
   font-family: var(--base-font);
-  background: linear-gradient(#1e0c49, #08030c);
+  /* background: linear-gradient(#1e0c49, #08030c); */
+  background-color: #0e0e0e;
   color: #efefef;
   width: 20rem;
   padding-bottom: 2rem;
@@ -71,7 +72,7 @@ p {
 .first {
   width: 90%;
   border-radius: 10px;
-  border: 1px solid #fdfdfd;
+  /* border: 1px solid #fdfdfd; */
   padding: 10px 8px;
   background: #ffffff10;
   display: flex;
@@ -88,8 +89,8 @@ p {
 }
 
 .first span {
-  color: gray;
-  font-size: 10px;
+  color: rgb(169, 169, 169);
+  font-size: 12px;
   font-family: var(--base-font);
 }
 
@@ -155,7 +156,7 @@ button:hover {
 
 .sum_btn {
   border: none;
-  background: rgba(81, 59, 143, 0.301);
+  background: #4c49539e;
   font-family: var(--base-font);
   color: white;
   font-size: 14px;
@@ -166,5 +167,13 @@ button:hover {
 }
 
 .sum_btn:hover {
-  background: rgb(86, 66, 114);
+  background: #2d2b2e;
+}
+
+footer {
+  margin: 10px 1.2rem 0 1.2rem;
+}
+
+footer a {
+  color: aqua;
 }
